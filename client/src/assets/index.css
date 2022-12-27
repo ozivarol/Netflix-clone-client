@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .input {
+        @apply rounded-md w-full bg-[#333333] placeholder-[#8b8b8b] ring-zinc-500 text-white p-3;
+    }
+
+    .red-button {
+        @apply mt-4 rounded-md w-full font-bold flex items-center justify-center py-3 px-4 bg-[#e50914] text-white;
+
+    }
+}

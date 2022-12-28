@@ -92,7 +92,7 @@
 </template>
 
 <script setup>
-import { inject, reactive, ref, watch, computed } from 'vue';
+import { inject, reactive, ref, watch, computed, onMounted } from 'vue';
 import { useRouter } from "vue-router"
 import { useStore } from "vuex";
 import ErrorMessage from '../components/ErrorPopup.vue'
@@ -110,6 +110,9 @@ const state = reactive({
   },
   isLoading: false,
   isError: false,
+})
+onMounted(() => {
+  localStorage.clear()
 })
 const errorMessage = reactive({ message: null })
 

@@ -2,7 +2,7 @@
   <div v-if="is500">
     <Error500 />
   </div>
-  <div v-if="!isLoading">
+  <div v-else-if="!isLoading">
     <Loading />
   </div>
   <div v-else>
@@ -57,7 +57,7 @@
 import ErrorMessage from '../components/ErrorPopup.vue'
 import Error500 from "../components/500page.vue"
 import Loading from "../components/Loading.vue"
-import { inject, ref, watch, reactive, computed } from 'vue';
+import { inject, ref, watch, reactive, computed, onMounted } from 'vue';
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 const appAxios = inject("appAxios")
@@ -67,16 +67,17 @@ const userData = ref({
   email: null,
   password: null
 })
+
 const is500 = computed(() => store.getters._isError)
 const isLoading = computed(() => store.getters._isLoading)
 const a = store.getters._isLoading
 
 const errorMessage = reactive({ message: null })
 
-
-const onSubmit = () => {
+console.log(store.getters._isAuthenticated)
+const onSubmit = async () => {
   try {
-    appAxios.post("/user/login", { ...userData.value }).then(res => {
+    await appAxios.post("/user/login", { ...userData.value }).then(res => {
 
 
       const { email } = res.data.data
@@ -84,6 +85,7 @@ const onSubmit = () => {
       if (res?.data) {
         store.commit("setUser", email)
         store.commit("setLoading", false)
+
 
       }
     }).catch((e) => {

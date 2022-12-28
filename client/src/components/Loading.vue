@@ -25,15 +25,14 @@ export default {
 
             // Animasyon tamamlandıktan sonra yapılacak işlemler
             animation.addEventListener('complete', () => {
-
-
-
-
+                console.log(store.getters._isAuthenticated)
                 store.commit("setLoading", true)
-                router.push({ name: "HomePage" });
+                if (store.getters._isAuthenticated) {
+                    router.push({ name: "HomePage" });
+
+                }
 
             });
-
         });
 
 

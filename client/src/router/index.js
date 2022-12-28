@@ -64,27 +64,22 @@ const routes = [
 
 const router = createRouter({
     routes,
-    history: createWebHashHistory()
+    history: createWebHashHistory(),
+    mode: 'history'
 })
-router.beforeEach((to, _, next) => {
+router.beforeEach(async (to, _, next) => {
     const authRequiredRoutes = ["HomePage", "Shows", "Movies", "search", "video"];
     const authNotRequiredRoutes = ["LoginPage", "RegisterPage", "IndexPage"];
     const _isAuthenticated = store.getters._isAuthenticated;
 
-    if (authNotRequiredRoutes.indexOf(to.name) > -1 && _isAuthenticated) next(false);
-
-    if (authRequiredRoutes.indexOf(to.name) > -1) {
-        if (_isAuthenticated) {
-
-            next();
-
-        }
-        else next({ name: "LoginPage" });
+    if (authNotRequiredRoutes.includes(to.name) && _isAuthenticated) {
+        next({ name: 'HomePage' })
+    } else if (authRequiredRoutes.includes(to.name) && !_isAuthenticated) {
+        next({ name: 'LoginPage' })
     } else {
-        next();
+        next()
     }
 });
-
 
 
 export default router

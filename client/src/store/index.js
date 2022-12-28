@@ -2,7 +2,7 @@ import { createStore } from "vuex"
 import createPersistedState from "vuex-persistedstate";
 import SecureLS from "secure-ls";
 import { reactive } from "vue";
-var ls = new SecureLS({ isCompression: false });
+const ls = new SecureLS({ isCompression: false });
 
 export default createStore({
     state: {
@@ -70,6 +70,7 @@ export default createStore({
                 setItem: (key, value) => ls.set(key, value),
                 removeItem: key => ls.remove(key)
             }
+
         })
     ]
 })

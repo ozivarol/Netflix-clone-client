@@ -3,9 +3,13 @@
     <img loading="lazy" class="hero__img" :src="`https://image.tmdb.org/t/p/original/${movieInfo.backdrop_path}`"
       alt="" />
     <div class="hero__main">
-      <h1 class="hero__title">{{ movieInfo.title || movieInfo.name }}</h1>
+      <h1 class="hero__title">{{ movieInfo.title || movieInfo.name }}
+        <img src="./netflix.gif" alt="DENEME" class="gif" />
+      </h1>
+
       <p class="hero__overview">{{ movieOverview }}</p>
       <div class="hero__btns">
+
         <button @click="watchMovie" class="hero__btn hero__btn--play">
           <i class="fas fa-play hero__btn-icon"></i> Play
         </button>
@@ -13,7 +17,9 @@
           <i class="fas fa-info-circle hero__btn-icon"></i> More Info
         </button>
       </div>
+
     </div>
+
     <ModalComponent @likeMovie="likeMovie" @dislikeMovie="dislikeMovie" @addToList="addToList"
       @removeMovie="removeMovie" @closeModal="closeModal" :cardInfo="movieInfo" v-if="isActive" />
   </div>
@@ -203,7 +209,11 @@ export default {
 
   &__title {
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
+    font-family: 'Bebas';
+    font-weight: bolder;
+    font-size: 65px;
+    display: flex;
 
     @include mq("tablet", max) {
       @include font-size(24);
@@ -225,6 +235,48 @@ export default {
     @include mq("mid-tablet", max) {
       display: none;
     }
+  }
+}
+
+.gif {
+  width: 4%;
+  height: 4%;
+  margin-top: 11px;
+  margin-left: 10px;
+
+
+
+}
+
+@media only screen and (max-width: 820px) {
+  .gif {
+    font-size: 14px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .gif {
+    font-size: 14px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 9px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .gif {
+    width: 15%;
+    height: 95%;
+    margin-right: 200px;
+    margin-bottom: 20px;
+
   }
 }
 </style>

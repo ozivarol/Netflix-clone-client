@@ -114,7 +114,9 @@ onMounted(() => {
 const onLogout = () => {
   store.commit("logoutUser");
   store.commit("setOutToken")
+  localStorage.clear()
   router.push({ name: "LoginPage" });
+
 
 };
 

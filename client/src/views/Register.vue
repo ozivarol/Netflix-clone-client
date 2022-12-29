@@ -14,7 +14,7 @@
           </div>
           <div class="flex items-start justify-center mt-40">
             <form class="w-full max-w-md p-8 bg-black rounded-md sm:p-14 bg-opacity-75">
-              <h1 class="text-3xl font-bold text-white">Üye Ol</h1>
+              <h1 class="text-3xl font-bold text-white font">Üye Ol</h1>
               <div class="flex flex-col my-6 space-y-4">
                 <input v-model="state.user.first_name" required="required" class="input focus:outline-none focus:ring"
                   type="text" placeholder="Ad" />
@@ -58,14 +58,15 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
 
-                  <label class="inline-block ml-1 text-zinc-500" for="agree-terms">
+                  <label class="inline-block ml-1 text-zinc-500 mt-1 font" for="agree-terms">
                     Kullanıcı sözleşmesini
-                    <a href="/terms-and-conditions" target="_blank" class="text-white underline">kabul ediyorum</a>.
+                    <a href="/terms-and-conditions" target="_blank" class="text-white underline font">kabul
+                      ediyorum</a>.
                   </label>
                 </div>
               </div>
               <button type="submit" class="red-button" @click="onSave">
-                <span v-if="!state.isLoading">Kayıt Ol</span>
+                <span v-if="!state.isLoading" class="font">Kayıt Ol</span>
                 <svg v-if="state.isLoading" class="w-6 h-6 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
                   viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -75,9 +76,10 @@
                 </svg>
               </button>
               <div class="mt-6">
-                <p class="text-zinc-500">
+                <p class="text-zinc-500 font">
                   Zaten Netflix'e Üye Misin?
-                  <router-link :to="{ name: 'LoginPage' }" class="text-white hover:underline">Giriş Yap</router-link>.
+                  <router-link :to="{ name: 'LoginPage' }" class="text-white hover:underline font">Giriş
+                    Yap</router-link>.
                 </p>
               </div>
             </form>
@@ -190,5 +192,11 @@ const onMove = () => {
 <style scoped>
 .bg-image {
   background-image: url('http://s3-us-west-2.amazonaws.com/techvibes/wp-content/uploads/2017/04/24135159/Netflix-Background.jpg');
+}
+
+.font {
+  font-family: 'Bebas';
+  font-weight: bold;
+
 }
 </style>

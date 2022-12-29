@@ -1,12 +1,7 @@
 <template>
   <div class="card">
     <div class="card__main">
-      <img
-        class="card__img"
-        loading="lazy"
-        :src="`https://image.tmdb.org/t/p/w300${cardInfo.backdrop_path}`"
-        alt=""
-      />
+      <img class="card__img" loading="lazy" :src="`https://image.tmdb.org/t/p/w300${cardInfo.backdrop_path}`" alt="" />
     </div>
     <div class="card__info">
       <p class="card__title">{{ cardInfo.name || cardInfo.title }}</p>
@@ -18,23 +13,13 @@
           <button v-if="!cardInfo.isAdded" @click="addToList" class="card__btn">
             <i class="fas fa-plus card__icon"></i>
           </button>
-          <button
-            v-else
-            @click="$emit('removeFromList', cardInfo), removeMovie()"
-            class="card__btn"
-          >
+          <button v-else @click="$emit('removeFromList', cardInfo), removeMovie()" class="card__btn">
             <i class="fas fa-check card__icon"></i>
           </button>
-          <button
-            @click="likeMovie"
-            :class="[{ act: cardInfo.isLiked }, 'card__btn']"
-          >
+          <button @click="likeMovie" :class="[{ act: cardInfo.isLiked }, 'card__btn']">
             <i class="far fa-thumbs-up card__icon"></i>
           </button>
-          <button
-            @click="dislikeMovie"
-            :class="[{ act: cardInfo.isLiked === false }, 'card__btn']"
-          >
+          <button @click="dislikeMovie" :class="[{ act: cardInfo.isLiked === false }, 'card__btn']">
             <i class="far fa-thumbs-down card__icon"></i>
           </button>
         </div>
@@ -45,23 +30,13 @@
       <div class="card__genres">
         <span class="card__genre">{{ cardInfo.genres[0].name }} </span>
         <i v-if="cardInfo.genres[1]" class="fas fa-circle card__genre-dot"></i>
-        <span v-if="cardInfo.genres[1]" class="card__genre"
-          >{{ cardInfo.genres[1].name }}
+        <span v-if="cardInfo.genres[1]" class="card__genre">{{ cardInfo.genres[1].name }}
         </span>
       </div>
     </div>
   </div>
-  <ModalComponent
-    @likeMovie="likeMovie"
-    @dislikeMovie="dislikeMovie"
-    @addToList="addToList"
-    @removeMovie="removeMovie"
-    @closeModal="closeModal"
-    @watchMovie="watchMovie"
-    v-bind="$attrs"
-    :cardInfo="cardInfo"
-    v-if="isActive"
-  />
+  <ModalComponent @likeMovie="likeMovie" @dislikeMovie="dislikeMovie" @addToList="addToList" @removeMovie="removeMovie"
+    @closeModal="closeModal" @watchMovie="watchMovie" v-bind="$attrs" :cardInfo="cardInfo" v-if="isActive" />
 </template>
 
 <script>
@@ -142,45 +117,56 @@ export default {
   margin-top: 10%;
   cursor: pointer;
   transition: transform 0.5s ease-out;
+
   &:hover {
     margin-bottom: 0;
     transform: scale(1.2);
+
     .card__info {
       display: block;
     }
   }
+
   &__title {
-    color: $color-white;
+    color: #e50914;
     position: absolute;
     top: 0;
-    @include font-size(12);
+    font-family: 'Bebas';
+    @include font-size(17);
+
     @include mq("tablet", max) {
       @include font-size(10);
     }
+
     @include mq("small", max) {
       @include font-size(8);
     }
   }
+
   &__img {
     width: 100%;
     border-radius: 5px;
   }
+
   &__btns {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
+
   &__main-btns {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
+
   &__info {
     display: none;
     padding: 3px 0 3px 10px;
   }
+
   &__btn {
     display: flex;
     justify-content: center;
@@ -194,24 +180,30 @@ export default {
     cursor: pointer;
     @include font-size(10);
     border: 1px solid $color-white;
+
     &.act {
       @include font-size(11);
       border-width: 2px;
+
       @include mq("desktop", max) {
         @include font-size(9);
       }
+
       @include mq("small", max) {
         @include font-size(6);
       }
     }
+
     &--play {
       background: $color-white;
     }
+
     @include mq("desktop", max) {
       width: 20px;
       height: 20px;
       @include font-size(8);
     }
+
     @include mq("small", max) {
       width: 15px;
       height: 15px;
@@ -220,28 +212,35 @@ export default {
       @include font-size(5);
     }
   }
+
   &__icon {
     &--play {
       color: $color-background;
       margin-left: 2px;
     }
   }
+
   &__genres {
     padding: 5px 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
+
   }
+
   &__genre {
-    color: $color-white;
-    @include font-size(10);
+    color: #e50914;
+    @include font-size(17);
+
     @include mq("desktop", max) {
       @include font-size(8);
     }
+
     @include mq("small", max) {
       @include font-size(6);
     }
+
     &-dot {
       color: $color-white;
       @include font-size(2);

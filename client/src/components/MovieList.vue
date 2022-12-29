@@ -1,11 +1,7 @@
 <template>
   <div class="carousel">
     <h3 class="carousel__title">{{ movie.title }}</h3>
-    <button
-      v-if="leftArrow"
-      @click="prevSlide"
-      class="carousel__btn carousel__btn--left"
-    >
+    <button v-if="leftArrow" @click="prevSlide" class="carousel__btn carousel__btn--left">
       <i class="fas fa-chevron-right carousel__icon"></i>
     </button>
     <div ref="slider" class="carousel__list">
@@ -114,12 +110,17 @@ export default {
 <style lang="scss" scoped>
 .carousel {
   position: relative;
+  font-family: 'Bebas';
+  font-weight: bold;
+  font-size: 25px;
+
   &:hover {
     .carousel__icon {
       color: #fff;
       transition: color 0.5s ease;
     }
   }
+
   &__list {
     display: flex;
     flex-direction: row;
@@ -127,43 +128,53 @@ export default {
     overflow-y: hidden;
     scroll-behavior: smooth;
     padding: 0 5%;
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
+
   &__item {
     padding-right: 4px;
     max-width: calc(100% / 6);
     min-width: calc(100% / 6);
+
     @include mq("desktop", max) {
       max-width: calc(100% / 5);
       min-width: calc(100% / 5);
     }
+
     @include mq("mid-tablet", max) {
       max-width: calc(100% / 4);
       min-width: calc(100% / 4);
     }
+
     @include mq("tablet", max) {
       max-width: calc(100% / 3);
       min-width: calc(100% / 3);
     }
+
     @include mq("mobile", max) {
       max-width: calc(100% / 2);
       min-width: calc(100% / 2);
     }
   }
+
   &__title {
     color: $color-white;
     padding-left: 5%;
     margin-top: 0;
     margin-bottom: -10px;
+
     @include mq("mid-tablet", max) {
       @include font-size(14);
     }
+
     @include mq("tablet", max) {
       @include font-size(12);
     }
   }
+
   &__btn {
     position: absolute;
     bottom: 30%;
@@ -174,17 +185,21 @@ export default {
     width: 5%;
     cursor: pointer;
     padding: 0;
+
     &--left {
       left: 0;
       transform: rotate(180deg);
     }
+
     @include mq("tablet", max) {
       height: calc(60% - 8px);
     }
   }
+
   &__icon {
     color: rgba(0, 0, 0, 0);
     @include font-size(28);
+
     @include mq("tablet", max) {
       @include font-size(20);
     }

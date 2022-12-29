@@ -76,4 +76,10 @@ onMounted(() => {
 .bg-image {
   background-image: url('http://s3-us-west-2.amazonaws.com/techvibes/wp-content/uploads/2017/04/24135159/Netflix-Background.jpg');
 }
+
+.font {
+  font-family: 'Bebas';
+  font-weight: bold;
+
+}
 </style>

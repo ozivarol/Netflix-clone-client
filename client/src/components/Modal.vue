@@ -155,6 +155,7 @@ export default {
   background: rgba(0, 0, 0, 0.7);
   z-index: z-index(popup);
 
+
   &__content {
     position: fixed;
     top: 20px;

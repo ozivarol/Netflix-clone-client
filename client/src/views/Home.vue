@@ -1,10 +1,14 @@
 <template>
   <Header />
+
   <HeroComponent :heroParam="moviesHeroParam" />
   <main class="main">
     <MovieListComponent :movie="item" :key="index" v-for="(item, index) in listInfo" />
 
   </main>
+
+
+
 
 
 </template>

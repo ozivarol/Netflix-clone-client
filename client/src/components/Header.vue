@@ -56,7 +56,9 @@
         <div ref="accountRef" class="header__account-links">
           <a href="#" class="header__account-link">Manage Profiles</a>
           <hr class="header__account-line" />
-          <a href="#" class="header__account-link">Account</a>
+          <router-link :to="{ name: 'AccountPage' }" class="header__account-link">
+            Account
+          </router-link>
           <a href="#" class="header__account-link">Help Center</a>
           <a @click="onLogout" href="#" class="header__account-link">Sign out of Netflix</a>
         </div>
@@ -68,6 +70,7 @@
 import { ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
+import AccountPage from "../views/Account.vue";
 const store = useStore()
 const router = useRouter()
 const navRef = ref("")
@@ -133,6 +136,7 @@ const onLogout = () => {
   align-items: center;
   padding: 20px 5%;
   z-index: z-index(mid);
+  font-family: 'Bebas';
   background: linear-gradient(to bottom,
       rgba(0, 0, 0, 0.7) 10%,
       rgba(0, 0, 0, 0));
@@ -182,6 +186,7 @@ const onLogout = () => {
     @include mq("mid-tablet", max) {
       display: none;
 
+
       &.show {
         display: flex;
         position: absolute;
@@ -211,7 +216,7 @@ const onLogout = () => {
     text-decoration: none;
     color: $header-link;
     margin-right: 15px;
-    @include font-size(14);
+    @include font-size(20);
 
     @include mq("mid-tablet", max) {
       margin-right: 0;
@@ -220,7 +225,7 @@ const onLogout = () => {
     }
 
     &:hover {
-      color: #cacaca;
+      color: #e50914;
     }
 
     &--logo {
@@ -235,6 +240,7 @@ const onLogout = () => {
     &-icon {
       width: 100px;
       height: 27px;
+
 
       @include mq("tablet", max) {
         width: 50px;
@@ -417,7 +423,7 @@ const onLogout = () => {
 }
 
 .router-link-exact-active {
-  color: $color-white;
+  color: #e50914;
   font-weight: 600;
 
   &:hover {

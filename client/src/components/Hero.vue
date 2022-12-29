@@ -239,9 +239,9 @@ export default {
 }
 
 .gif {
-  width: 4%;
+  width: 5%;
   height: 4%;
-  margin-top: 11px;
+  margin-top: 12px;
   margin-left: 10px;
 
 

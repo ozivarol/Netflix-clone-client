@@ -19,7 +19,7 @@
             <form class="w-full max-w-md p-8 bg-black rounded-md sm:p-14 bg-opacity-75 relative">
 
 
-              <h1 class="text-3xl font-bold text-white">Giriş Yap</h1>
+              <h1 class="text-3xl font-bold text-white form">Giriş Yap</h1>
 
               <div class="flex flex-col my-6 space-y-4">
                 <input v-model="userData.email" required="required" class="input focus:outline-none focus:ring"
@@ -31,13 +31,13 @@
               <button @click="onSubmit" type="submit" class="
                red-button
               ">
-                <span>Giriş Yap</span>
+                <span class="form">Giriş Yap</span>
 
               </button>
               <div class="mt-6">
-                <p class="text-zinc-500">
+                <p class="text-zinc-500 form">
                   Şimdi Netflix Hesabı
-                  <router-link :to="{ name: 'RegisterPage' }" class="text-white hover:underline">
+                  <router-link :to="{ name: 'RegisterPage' }" class="text-white hover:underline form">
                     oluştur!
                   </router-link>
                 </p>
@@ -128,5 +128,11 @@ const onMove = () => {
 <style scoped>
 .bg-image {
   background-image: url('https://www.pazarlamasyon.com/wp-content/uploads/2019/10/Netflix-4.jpg');
+}
+
+.form {
+  font-family: 'Bebas';
+  font-weight: bold;
+
 }
 </style>

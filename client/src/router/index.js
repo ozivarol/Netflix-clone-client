@@ -9,6 +9,7 @@ import MoviesComponent from "@/views/Movies.vue";
 import PopularComponent from "@/views/Popular.vue";
 import SearchComponent from "@/views/Search.vue";
 import VideoComponent from "@/views/Video.vue";
+import AccountComponent from "@/views/Account.vue"
 import store from "../store";
 const routes = [
     {
@@ -58,6 +59,12 @@ const routes = [
         component: VideoComponent,
 
     },
+    {
+        path: "/account",
+        name: "AccountPage",
+        component: AccountComponent,
+
+    },
 
     { path: "/:pathMatch(.*)*", redirect: "/" },
 ]
@@ -68,7 +75,7 @@ const router = createRouter({
     mode: 'history'
 })
 router.beforeEach(async (to, _, next) => {
-    const authRequiredRoutes = ["HomePage", "Shows", "Movies", "search", "video"];
+    const authRequiredRoutes = ["HomePage", "Shows", "Movies", "search", "video", "AccountPage"];
     const authNotRequiredRoutes = ["LoginPage", "RegisterPage", "IndexPage"];
     const _isAuthenticated = store.getters._isAuthenticated;
 

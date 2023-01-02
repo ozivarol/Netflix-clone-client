@@ -60,10 +60,14 @@ import { onMounted } from 'vue';
   </div>
 </template>
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, inject } from 'vue';
 import { useStore } from "vuex";
+const appAxios = inject("appAxios")
 
 const store = useStore();
+appAxios.get("https://ipapi.co/{ip}/{format}/").then(res => {
+  console.log(res)
+})
 
 
 onMounted(() => {

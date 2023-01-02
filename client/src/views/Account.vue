@@ -4,7 +4,7 @@
     <main class="profile-page">
         <section class="relative block" style="height: 500px;">
             <div class="absolute top-0 w-full h-full bg-center bg-cover"
-                style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'>
+                style='background-image: url("https://r4.wallpaperflare.com/wallpaper/304/507/770/league-of-legends-arcane-jinx-league-of-legends-hd-wallpaper-bb86acad33e1bfa96504eb699decec70.jpg");'>
                 <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
             </div>
             <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
@@ -30,7 +30,7 @@
                             </div>
                             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                                 <div class="py-6 px-3 mt-32 sm:mt-0">
-                                    <button
+                                    <button @click="deleteProfile"
                                         class="bg-red-800 active:bg-red-500  uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                                         type="button" style="transition: all 0.15s ease 0s;">
                                         Delete Account
@@ -76,7 +76,7 @@
                                         rerum quidem perspiciatis voluptatem, minima fugit vel nobis laborum architecto
                                         sit, soluta laudantium. Sint atque consequatur culpa labore libero.
                                     </p>
-                                    <a href="#pablo" class="font-normal text-red-500">Show more</a>
+
                                 </div>
                             </div>
                         </div>
@@ -90,6 +90,8 @@
 import Header from "../components/Header.vue"
 import { useStore } from "vuex";
 import { inject, reactive, onMounted } from 'vue';
+import { useRouter } from "vue-router";
+const router = useRouter()
 const store = useStore()
 const appAxios = inject("appAxios")
 const state = reactive({
@@ -120,6 +122,19 @@ const getProfile = async () => {
     console.log(state)
 
 }
+const deleteProfile = async () => {
+    await appAxios.delete(`user/delete/${store.getters._getCurrentUser}`).then(res => {
+        if (res.data.success) {
+            store.commit("logoutUser");
+            store.commit("setOutToken")
+            router.push({ name: "IndexPage" })
+        }
+
+    }).catch(e => { console.log(e) })
+
+}
+
+
 
 
 onMounted(() => {

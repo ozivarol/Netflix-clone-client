@@ -67,7 +67,7 @@ const appAxios = inject("appAxios")
 const store = useStore();
 appAxios.get("https://ipapi.co/{ip}/{format}/").then(res => {
   console.log(res)
-})
+}).catch(e => { console.log(e) })
 
 
 onMounted(() => {

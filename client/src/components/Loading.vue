@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { onMounted, watchEffect } from 'vue';
+import { onMounted } from 'vue';
 import lottie from 'lottie-web';
 import { useRouter } from "vue-router";
 import store from '../store';

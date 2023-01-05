@@ -35,15 +35,7 @@
       <div class="header__notification">
         <i @click="toggleMenu(notiRef)" class="fas fa-bell header__notification-icon"></i>
         <div ref="notificationRef" class="header__notification-list">
-          <a class="header__notification-item" href="#"><img class="header__notification-img"
-              src="@/assets/notification-images/lupin.jpg" alt="lupin-poster" />
-            <p>Now available Part 2.</p>
-          </a>
           <hr class="header__notification-line" />
-          <a class="header__notification-item" href="#"><img class="header__notification-img"
-              src="@/assets/notification-images/strangerthings.jpg" alt="stranger things-poster" />
-            <p>Suggestion for tonight.</p>
-          </a>
         </div>
       </div>
       <div @click="toggleMenu(accountRef)" class="header__account">

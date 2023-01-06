@@ -4,6 +4,7 @@
 
     <div id="loading-animation"
         class="w-full h-screen flex flex-col items-center justify-center bg-rgba(0, 0, 0, 0.7) position-relative">
+        <Vue3Lottie :animationData="netflixloadingJSON" :height="1000" :width="1000" :loop=false :onOnComplete="go" />
         <h1 className="mb-1 ml-4 flex-col  mt-20 font-mono text-4xl text-gray-100 md:text-6xl text">
             <span
                 className="inline-flex text-red-700 h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change-transform">
@@ -22,32 +23,21 @@
 </template>
 <script setup>
 import { useRouter } from "vue-router";
-import { onMounted } from 'vue';
-import lottie from 'lottie-web';
+import { Vue3Lottie } from 'vue3-lottie'
+import netflixloadingJSON from '../assets/animations/netflix-loading.json'
+import 'vue3-lottie/dist/style.css'
 import { useStore } from "vuex";
+
 const store = useStore()
 const router = useRouter()
-onMounted(() => {
-    // Lottie animasyonunu yükle
-    const animation = lottie.loadAnimation({
-        container: document.getElementById('app').querySelector('#loading-animation'), // Animasyonu gösterecek element
-        renderer: 'svg', // Animasyonu render etmek için kullanılacak teknoloji
-        loop: false, // Animasyonu sürekli oynat
-        autoplay: true, // Animasyonu otomatik oynat
-        path: './src/assets/animations/netflix-loading.json' // Animasyon dosyasının yolu
-    });
+const go = () => {
+    store.commit("logoutUser");
+    store.commit("setOutToken")
+    localStorage.clear()
+    router.push({ name: "IndexPage" });
 
-    // Animasyon tamamlandıktan sonra yapılacak işlemler
-    animation.addEventListener('complete', () => {
-        store.commit("logoutUser");
-        store.commit("setOutToken")
-        localStorage.clear()
-        router.push({ name: "IndexPage" });
+}
 
-
-
-    });
-});
 </script>
 <style>
 .text {

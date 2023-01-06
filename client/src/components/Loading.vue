@@ -1,42 +1,29 @@
 <template>
-    <div id="loading-animation" class="w-full h-screen flex flex-col items-center justify-center bg-black"></div>
+    <div id="loading-animation" class="w-full h-screen flex flex-col items-center justify-center bg-black">
+        <Vue3Lottie :animationData="netflixloadingJSON" :height="1000" :width="1000" :loop=false :onOnComplete="go" />
+    </div>
 </template>
 
-<script>
-import { onMounted } from 'vue';
-import lottie from 'lottie-web';
+<script setup>
 import { useRouter } from "vue-router";
 import store from '../store';
-
-export default {
-    setup() {
-        const router = useRouter()
-
-
-        onMounted(() => {
-            // Lottie animasyonunu yükle
-            const animation = lottie.loadAnimation({
-                container: document.getElementById('app').querySelector('#loading-animation'), // Animasyonu gösterecek element
-                renderer: 'svg', // Animasyonu render etmek için kullanılacak teknoloji
-                loop: false, // Animasyonu sürekli oynat
-                autoplay: true, // Animasyonu otomatik oynat
-                path: './src/assets/animations/netflix-animation.json' // Animasyon dosyasının yolu
-            });
-
-            // Animasyon tamamlandıktan sonra yapılacak işlemler
-            animation.addEventListener('complete', () => {
-                console.log(store.getters._isAuthenticated)
-                store.commit("setLoading", true)
-                if (store.getters._isAuthenticated) {
-                    router.push({ name: "HomePage" });
-
-                }
-
-            });
-        });
+import { Vue3Lottie } from 'vue3-lottie'
+import netflixloadingJSON from '../assets/animations/netflix-animation.json'
+import 'vue3-lottie/dist/style.css'
 
 
+const router = useRouter()
 
+const go = () => {
+    console.log("ÇALIŞTIM")
+    console.log(store.getters._isAuthenticated)
+    store.commit("setLoading", true)
+    if (store.getters._isAuthenticated) {
+        router.push({ name: "HomePage" });
     }
-};
+
+}
+
+
+
 </script>

@@ -40,6 +40,7 @@
                   <router-link :to="{ name: 'RegisterPage' }" class="text-white hover:underline form">
                     oluştur!
                   </router-link>
+
                 </p>
               </div>
             </form>

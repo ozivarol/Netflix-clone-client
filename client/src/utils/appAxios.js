@@ -1,4 +1,4 @@
 import axios from "axios";
 export const appAxios = axios.create({
-    baseURL: "http://netflixclonebackend-env.eba-ixpktzqd.us-east-1.elasticbeanstalk.com"
+    baseURL: "https://netflix-clone-api-v2-git-oguzhanvaroll43-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"
 })

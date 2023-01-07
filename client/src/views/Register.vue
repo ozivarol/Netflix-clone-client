@@ -133,7 +133,7 @@ const onSave = async () => {
   await appAxios.post("/user/register", { ...state.user }).then((res) => {
 
 
-    console.log(res.error)
+
 
     state.user = {
 
@@ -157,16 +157,11 @@ const onSave = async () => {
 
     if (e?.response) {
       state.isLoading = false
-      console.log("EEEEE")
       errorMessage.message = e.response.data.message
-      console.log(errorMessage.message)
-      console.log(typeof (errorMessage.message))
-
 
     }
     if (e.message == "Network Error") {
       state.isLoading = false
-      console.log("AAAA")
       is500.isa = true
       errorMessage.message = "Sistemde bir sorun oluştu lütfen daha sonra tekrar deneyin"
       store.commit("setError", true)

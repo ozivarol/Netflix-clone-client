@@ -106,11 +106,7 @@ console.log(store.getters._isError)
 if (store.getters._isError) {
     setTimeout(() => {
         const timeID = setInterval(() => {
-            console.log("Girdim")
-            console.log(store.getters._isError, "ilk")
             store.commit("setOutError")
-            console.log(store.getters._isError, "ikinci")
-            console.log(timeID)
             router.push({ name: "IndexPage" })
             clearInterval(timeID)
 

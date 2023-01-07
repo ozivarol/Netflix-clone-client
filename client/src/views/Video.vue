@@ -56,12 +56,12 @@ async function fetchVideoUrl() {
   await fetch(`https://api.themoviedb.org/3/${videoInfo.type}/${videoInfo.id}?api_key=${apikey}&append_to_response=videos`)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response)
+
       videoUrl.value = `https://www.youtube.com/embed/${response.videos.results[0].key}?amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`;
       isLoading.value = true
 
     });
-  console.log(videoUrl.value)
+
 
 
 }

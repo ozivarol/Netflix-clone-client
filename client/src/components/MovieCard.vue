@@ -71,7 +71,6 @@ export default {
     function addToList() {
       props.cardInfo.isAdded = true;
       localStorage.setItem(props.cardInfo.id, JSON.stringify(props.cardInfo));
-      console.log(props.cardInfo);
     }
 
     function removeMovie() {

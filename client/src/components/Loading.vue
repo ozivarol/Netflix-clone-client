@@ -15,8 +15,6 @@ import 'vue3-lottie/dist/style.css'
 const router = useRouter()
 
 const go = () => {
-    console.log("ÇALIŞTIM")
-    console.log(store.getters._isAuthenticated)
     store.commit("setLoading", true)
     if (store.getters._isAuthenticated) {
         router.push({ name: "HomePage" });

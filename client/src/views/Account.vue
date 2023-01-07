@@ -59,17 +59,17 @@
                                 <div class="mb-2 text-gray-700 mt-10">
                                     <i class="fas fa-calendar mr-2 text-lg text-gray-500"></i>Hesap Oluşturma Tarihi -
                                     {{
-        state.createDate
-}}
+                                        state.createDate
+                                    }}
                                 </div>
                                 <div class="mb-2 text-gray-700">
                                     <i class="fa fa-reply mr-2 text-lg text-gray-500"></i>Son Değişiklik Zamanı - {{
-        state.updateDate
-}}
+                                        state.updateDate
+                                    }}
                                 </div>
                                 <div class="mb-2 text-gray-700">
                                     <i class="fa fa-server mr-2 text-lg text-gray-500"></i>Ip Adress - {{
-        state.ip
+    state.ip
                                     }}
                                 </div>
                             </div>
@@ -119,7 +119,6 @@ console.log(store.getters._getCurrentUser)
 console.log(isLoading.value, "dasdasds")
 const getProfile = async () => {
     await appAxios.get(`user/profile/${store.getters._getCurrentUser}`).then(res => {
-        console.log(res.data.userData)
         state.name = res.data.userData._doc.first_name.toUpperCase()
         state.surname = res.data.userData._doc.last_name.toUpperCase()
         state.email = res.data.userData._doc.email
@@ -128,8 +127,8 @@ const getProfile = async () => {
         state.locationCity = res.data.userData.city
         state.locationCountry = res.data.userData.country_name
         state.ip = res.data.userData.ip
-    }).catch(e => { console.log(e) })
-    console.log(state)
+    }).catch(e => { alert("Bir hata oluştu") })
+
 
 }
 const deleteProfile = async () => {
@@ -138,7 +137,7 @@ const deleteProfile = async () => {
             isLoading.value = true
         }
 
-    }).catch(e => { console.log(e) })
+    }).catch(e => { alert("Bir hata oluştu") })
 
 }
 

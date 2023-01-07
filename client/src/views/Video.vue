@@ -94,40 +94,7 @@ onMounted(() => {
 
 
 
-@media only screen and (max-width: 820px) {
 
-
-  .video-wrapper {
-    width: 390px;
-    height: 500px;
-    margin-top: 50px;
-    position: absolute;
-
-  }
-}
-
-@media only screen and (max-width: 540px) {
-
-
-  .video-wrapper {
-    width: 390px;
-    height: 500px;
-    margin-top: 50px;
-    position: absolute;
-
-  }
-}
-
-@media only screen and (max-width: 400px) {
-
-  .video-wrapper {
-    width: 390px;
-    height: 500px;
-    margin-top: 50px;
-    position: absolute;
-
-  }
-}
 
 .player {
   --plyr-color-main: #e50914;

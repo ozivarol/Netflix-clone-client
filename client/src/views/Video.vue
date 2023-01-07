@@ -92,18 +92,10 @@ onMounted(() => {
 
 }
 
-.header {
-  position: absolute;
 
-  padding: auto;
-}
 
 @media only screen and (max-width: 820px) {
-  .header {
-    position: fixed;
-    padding: auto;
-    margin-left: 10px;
-  }
+
 
   .video-wrapper {
     width: 390px;
@@ -115,11 +107,7 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 540px) {
-  .header {
-    position: fixed;
-    padding: auto;
-    margin-left: 10px;
-  }
+
 
   .video-wrapper {
     width: 390px;
@@ -131,11 +119,6 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 400px) {
-  .header {
-    position: fixed;
-    padding: auto;
-    margin-left: 0px;
-  }
 
   .video-wrapper {
     width: 390px;

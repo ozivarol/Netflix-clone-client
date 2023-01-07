@@ -1,18 +1,21 @@
 <template>
-  <Header />
+  <div class="header">
+    <Header />
+
+  </div>
+
 
   <div v-if="isLoadingv">
-    <vue-plyr>
-      <div>
-        <div class="plyr__video-embed">
-          <iframe :src="videoUrl" allowfullscreen allowtransparency></iframe>
+    <div class="video-wrapper">
+      <vue-plyr class="player">
+        <div data-plyr-provider="youtube" :data-plyr-embed-id="videoUrl">
+
+
         </div>
 
-      </div>
+      </vue-plyr>
 
-    </vue-plyr>
-  </div>
-  <div v-else>
+    </div>
 
   </div>
 
@@ -57,7 +60,8 @@ async function fetchVideoUrl() {
     .then((response) => response.json())
     .then((response) => {
 
-      videoUrl.value = `https://www.youtube.com/embed/${response.videos.results[0].key}?amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`;
+
+      videoUrl.value = response.videos.results[0].key;
       isLoading.value = true
 
     });
@@ -79,44 +83,70 @@ onMounted(() => {
 
 </script>
 
-<style lang="scss" scoped>
-.container {
+<style>
+.video-wrapper {
+  width: 1950px;
+  height: 800px;
+  margin-top: 50px;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  margin-left: 100px;
 
-  &::before {
-    content: "";
-    position: relative;
-    top: 0;
-    left: 0px;
-    width: 100%;
-    height: 8%;
-    background: $color-background;
-    margin-top: 100px;
+}
+
+.header {
+  position: absolute;
+
+  padding: auto;
+}
+
+@media only screen and (max-width: 820px) {
+  .header {
+    position: fixed;
+    padding: auto;
+    margin-left: 10px;
   }
 
-  &__video {
-    margin-top: 10px;
-    width: 100%;
-    height: 75vh;
-    margin-left: 50px;
+  .video-wrapper {
+    width: 390px;
+    height: 500px;
+    margin-top: 50px;
+    position: absolute;
 
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    width: calc(100% - 100px);
-
+@media only screen and (max-width: 540px) {
+  .header {
+    position: fixed;
+    padding: auto;
+    margin-left: 10px;
   }
 
+  .video-wrapper {
+    width: 390px;
+    height: 500px;
+    margin-top: 50px;
+    position: absolute;
+
+  }
 }
 
-@media (min-width: 769px) and (max-width: 1200px) {
-  .container {
-    width: calc(100% - 100px);
+@media only screen and (max-width: 400px) {
+  .header {
+    position: fixed;
+    padding: auto;
+    margin-left: 10px;
   }
+
+  .video-wrapper {
+    width: 390px;
+    height: 500px;
+    margin-top: 50px;
+    position: absolute;
+
+  }
+}
+
+.player {
+  --plyr-color-main: #e50914;
 }
 </style>

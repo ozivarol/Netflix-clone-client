@@ -4,7 +4,7 @@
 
     <div id="loading-animation"
         class="w-full h-screen flex flex-col items-center justify-center bg-rgba(0, 0, 0, 0.7) position-relative">
-        <Vue3Lottie :animationData="netflixloadingJSON" :height="1000" :width="1000" :loop=false :onOnComplete="go" />
+        <Vue3Lottie :animationData="netflixloadingJSON" :loop=false :onOnComplete="go" />
         <h1 className="mb-1 ml-4 flex-col  mt-20 font-mono text-4xl text-gray-100 md:text-6xl text">
             <span
                 className="inline-flex text-red-700 h-20 pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change-transform">

@@ -1,6 +1,6 @@
 <template>
     <div id="loading-animation" class="w-full h-screen flex flex-col items-center justify-center bg-black">
-        <Vue3Lottie :animationData="netflixloadingJSON" :height="1000" :width="1000" :loop=false :onOnComplete="go" />
+        <Vue3Lottie :animationData="netflixloadingJSON" :loop=true :onOnComplete="go" />
     </div>
 </template>
 
@@ -25,3 +25,4 @@ const go = () => {
 
 
 </script>
+

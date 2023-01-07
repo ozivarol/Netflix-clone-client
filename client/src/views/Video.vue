@@ -7,7 +7,7 @@
 
   <div v-if="isLoadingv">
     <div class="video-wrapper">
-      <vue-plyr class="player">
+      <vue-plyr>
         <div data-plyr-provider="youtube" :data-plyr-embed-id="videoUrl">
 
 
@@ -94,9 +94,32 @@ onMounted(() => {
 
 
 
+@media only screen and (max-width: 820px) {
+  .error-message {
+    font-size: 14px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
 
 
-.player {
-  --plyr-color-main: #e50914;
+
+@media only screen and (max-width: 400px) {
+  .header {
+    position: fixed;
+    padding: auto;
+    margin-left: 10px;
+  }
+
+  .video-wrapper {
+    width: 390px;
+    height: 500px;
+    margin-top: 50px;
+    position: absolute;
+
+  }
 }
 </style>

@@ -134,7 +134,7 @@ onMounted(() => {
   .header {
     position: fixed;
     padding: auto;
-    margin-left: 10px;
+    margin-left: 0px;
   }
 
   .video-wrapper {

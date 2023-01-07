@@ -95,11 +95,7 @@ onMounted(() => {
 
 
 @media only screen and (max-width: 900px) {
-  .header {
-    position: fixed;
-    padding: auto;
-    margin-left: 10px;
-  }
+
 
   .video-wrapper {
     width: 840px;
@@ -113,11 +109,6 @@ onMounted(() => {
 
 
 @media only screen and (max-width: 400px) {
-  .header {
-    position: fixed;
-    padding: auto;
-    margin-left: 10px;
-  }
 
   .video-wrapper {
     width: 390px;

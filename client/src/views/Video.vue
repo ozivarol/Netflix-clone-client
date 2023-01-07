@@ -34,7 +34,7 @@ let videoInfo = reactive({
 });
 const isLoading = ref(false)
 const videoUrl = ref("");
-const plyr = ref({ color: "#ff0000" })
+
 console.log(isLoading.value, "1")
 async function fetchVideoInfo() {
   await fetch(`https://api.themoviedb.org/3/find/${route.params.id}?api_key=${apikey}&language=en-US&external_source=imdb_id`)

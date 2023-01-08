@@ -260,8 +260,14 @@ const onLogout = () => {
     z-index: z-index(bot);
 
     @include mq("small", max) {
+      margin-left: 8px;
+      width: 125px;
+      font-size: 10px;
+    }
+
+    @include mq("mobile", max) {
       margin-left: 10px;
-      width: 200px;
+      width: 50px;
     }
   }
 

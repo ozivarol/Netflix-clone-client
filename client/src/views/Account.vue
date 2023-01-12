@@ -124,9 +124,6 @@ const getProfile = async () => {
         state.email = res.data.userData._doc.email
         state.createDate = new Date(Date.parse(res.data.userData._doc.createdAt)).toDateString()
         state.updateDate = new Date(Date.parse(res.data.userData._doc.updatedAt)).toDateString()
-        state.locationCity = res.data.userData.city
-        state.locationCountry = res.data.userData.country_name
-        state.ip = res.data.userData.ip
     }).catch(e => { alert("Bir hata oluştu") })
 
 
@@ -134,8 +131,16 @@ const getProfile = async () => {
 
 const getIp = async () => {
     await appAxios.get("https://api.ipify.org?format=json").then(response => {
-        const ip = response.data.ip
-        console.log(ip)
+        const { ip } = response.data
+
+
+        appAxios.post("user/getIp", { data: ip }).then((res) => {
+
+            state.locationCity = res.data.jsonData.city
+            state.locationCountry = res.data.jsonData.country_name
+            state.ip = res.data.jsonData.ip
+        })
+            .catch(e => { console.log(e) })
     })
 }
 const deleteProfile = async () => {

@@ -131,6 +131,13 @@ const getProfile = async () => {
 
 
 }
+
+const getIp = async () => {
+    await appAxios.get("https://api.ipify.org?format=json").then(response => {
+        const ip = response.data.ip
+        console.log(ip)
+    })
+}
 const deleteProfile = async () => {
     await appAxios.delete(`user/delete/${store.getters._getCurrentUser}`).then(res => {
         if (res.data.success) {
@@ -146,6 +153,7 @@ const deleteProfile = async () => {
 
 onMounted(() => {
     getProfile()
+    getIp()
 
 })
 

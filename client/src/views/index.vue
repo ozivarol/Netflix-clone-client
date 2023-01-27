@@ -32,9 +32,11 @@ import { onMounted } from 'vue';
             <router-link :to="{ name: 'LoginPage' }" class="w-full"><button type="button" class="
                   rounded-md
                   w-full
+                  font-bold
                   py-4
                   px-4
                   text-[#e50914]
+                  bg-white
                   font
                 ">
                 Login
@@ -43,9 +45,11 @@ import { onMounted } from 'vue';
             <router-link :to="{ name: 'RegisterPage' }" class="w-full"><button type="button" class="
                   rounded-md
                   w-full
+                  font-bold
                   py-4
                   px-4
                   bg-[#e50914]
+                  text-white
                   font
                 ">
                 Register!

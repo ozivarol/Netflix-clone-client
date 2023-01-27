@@ -16,8 +16,8 @@ import { onMounted } from 'vue';
               space-y-4
               text-center
             ">
-            <h1 class="text-[100px] font-bold text-white">Lé Netflix</h1>
-            <p class="text-4xl text-zinc-100">Bim yapımı Netflix.</p>
+            <h1 class="text-[100px] font-bold text-white font">Lé Netflix</h1>
+            <p class="text-4xl text-zinc-100 font">Bim yapımı Netflix.</p>
           </div>
 
           <div class="
@@ -32,11 +32,10 @@ import { onMounted } from 'vue';
             <router-link :to="{ name: 'LoginPage' }" class="w-full"><button type="button" class="
                   rounded-md
                   w-full
-                  font-bold
                   py-4
                   px-4
                   text-[#e50914]
-                  bg-white
+                  font
                 ">
                 Login
               </button></router-link>
@@ -44,11 +43,10 @@ import { onMounted } from 'vue';
             <router-link :to="{ name: 'RegisterPage' }" class="w-full"><button type="button" class="
                   rounded-md
                   w-full
-                  font-bold
                   py-4
                   px-4
                   bg-[#e50914]
-                  text-white
+                  font
                 ">
                 Register!
               </button></router-link>

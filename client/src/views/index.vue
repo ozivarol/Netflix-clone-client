@@ -67,10 +67,17 @@ import { useStore } from "vuex";
 const appAxios = inject("appAxios")
 
 const store = useStore();
+const connectApi = async () =>{
+  await appAxios.get("/main").then(res =>{
+         console.log(res)
+  }).catch(e =>{
+
+  })
+}
 
 
 onMounted(() => {
-
+  connectApi()
   store.commit("setLoading", true)
 });
 

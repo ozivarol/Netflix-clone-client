@@ -1,11 +1,11 @@
 # NETFLIX CLONE
 
 <div>
- <img src="1.PNG" alt="1" width="800" height="750"/>
- <img src="2.PNG" alt="1" width="800" height="750"/>
- <img src="3.PNG" alt="1" width="800" height="750"/>
- <img src="4.PNG" alt="1" width="800" height="750"/>
- <img src="5.PNG" alt="1" width="800" height="750"/>
+ <img src="1.PNG" alt="1" width="1200" height="750"/>
+ <img src="2.PNG" alt="1" width="1200" height="750"/>
+ <img src="3.PNG" alt="1" width="1200" height="750"/>
+ <img src="4.PNG" alt="1" width="1200" height="750"/>
+ <img src="5.PNG" alt="1" width="1200" height="750"/>
  
 </div>
 
